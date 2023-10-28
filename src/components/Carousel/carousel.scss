@@ -1,0 +1,43 @@
+.slider {
+  width: 100%;
+  max-width: 800px;
+  height: 350px;
+  position: relative;
+  &__slide {
+    width: 100%;
+    max-width: 800px;
+    height: 350px;
+    position: absolute;
+    transition: all 0.5s;
+    display: flex;
+    img {
+      width: 100%;
+      height: 100%;
+      max-width: 50vw;
+    }
+  }
+  &__button {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    z-index: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    font-size: 18px;
+    &:active {
+      transform: scale(1.1);
+    }
+    &.prev {
+      top: 45%;
+      left: 2%;
+    }
+
+    &.next {
+      top: 45%;
+      right: 2%;
+    }
+  }
+}

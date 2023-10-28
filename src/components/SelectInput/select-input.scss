@@ -1,0 +1,183 @@
+.select-input *,
+.select-input *::before,
+.select-input *::after {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  color: rgb(73, 73, 73);
+}
+
+.select-input {
+  width: 12.5rem;
+  height: 3.125rem;
+  display: inline-flex;
+  border-radius: 10px;
+  position: relative;
+  border: 1px solid rgb(185, 184, 184);
+  background-color: #fff;
+  justify-content: space-between;
+  box-shadow: 0px 2px 5px 0px rgba(34, 60, 80, 0.2);
+  transition: 400ms;
+  user-select: none;
+  &.disabled {
+    pointer-events: none;
+    background-color: rgb(185, 184, 184);
+  }
+}
+
+.dropdown-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 10px;
+  cursor: pointer;
+  border-radius: 9px;
+  flex: 1;
+  justify-content: space-between;
+  &.placeholder {
+    font-style: italic;
+  }
+}
+
+.dropdown-container::after {
+  content: '';
+  background-image: url('data:image/svg+xml;base64,PHN2ZyBmaWxsPSIjNDk0OTQ5IiB3aWR0aD0iNzAwcHQiIGhlaWdodD0iNzAwcHQiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDcwMCA3MDAiCiAgICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDxwYXRoCiAgICAgICAgZD0ibTM4MC4zOSA0ODQuNzkgMzA3LjA0LTMwNS45OWMxNi43NjYtMTcuODEyIDE2Ljc2Ni00NS4wNTkgMC02MS44MjgtMTYuNzY2LTE2Ljc2Ni00NS4wNTktMTYuNzY2LTYxLjgyOCAwbC0yNzUuNiAyNzUuNi0yNzUuNi0yNzUuNmMtMTcuODEyLTE2Ljc2Ni00NS4wNTktMTYuNzY2LTYxLjgyOCAwLTE2Ljc2NiAxNi43NjYtMTYuNzY2IDQ0LjAxMiAwIDYxLjgyOGwzMDUuOTkgMzA1Ljk5YzE3LjgxMiAxNi43NjYgNDUuMDU5IDE2Ljc2NiA2MS44MjggMHoiCiAgICAgICAgZmlsbC1ydWxlPSJjdXJyZW50Q29sb3IiIC8+Cjwvc3ZnPg==');
+  width: 12px;
+  height: 12px;
+  background-position: center;
+  background-size: cover;
+  margin-left: 5px;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.select-wrapper {
+  width: 250px;
+  position: absolute;
+  top: 60px;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: 0.2s;
+  -o-transition: 0.2s;
+  transition: 0.2s;
+  &.is-open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+ul.select-wrapper {
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 0;
+  list-style: none;
+  height: 12rem;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+  white-space: nowrap;
+}
+
+ul.select-wrapper li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+
+  &.no-option {
+    cursor: auto;
+    &:hover {
+      background: inherit;
+    }
+  }
+}
+
+ul.select-wrapper li:hover {
+  background: lightgray;
+}
+
+ul.select-wrapper li span {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.input-wrapper {
+  width: 100%;
+  padding-left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  row-gap: 2px;
+}
+
+.input-wrapper legend {
+  font-size: 11px;
+}
+
+.input-wrapper .textfield {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.input-wrapper .textfield::before {
+  content: '+31';
+  margin-right: 5px;
+  white-space: nowrap;
+}
+
+.input-wrapper .textfield input {
+  width: 100%;
+  font-size: 16px;
+  outline: none;
+  border: none;
+  background: none;
+}
+
+/* actions */
+
+.select-input:focus-within {
+  border-color: rgb(0, 110, 255);
+  box-shadow: 0px 2px 5px 0px rgba(0, 110, 255, 0.2);
+}
+
+.dropdown-container:hover {
+  background-color: #dad9d9;
+}
+
+.dropdown-checkbox:checked ~ .select-wrapper {
+  top: 55px;
+  opacity: 1;
+  visibility: visible;
+}
+
+.dropdown-checkbox:checked + .dropdown-container::after {
+  rotate: 180deg;
+  translate: 0 -2px;
+}

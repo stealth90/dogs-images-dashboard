@@ -1,0 +1,21 @@
+.dashboard {
+  padding: 1.25rem;
+  transition: 300ms;
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #012970;
+  }
+  &__content {
+    display: grid;
+    grid-auto-rows: minmax(50vh, auto);
+    gap: 2rem;
+    grid-template-columns: 1fr;
+    @media screen and (min-width: 1024px) {
+      grid-template-columns: 1fr 2fr;
+    }
+    @media screen and (min-width: 1440px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+.lazy-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 1rem;
+  max-width: 100%;
+  height: auto;
+  max-height: 18.75rem;
+  margin: auto;
+  &.loading{
+    margin: unset;
+    height: 18.75rem;
+  }
+}
