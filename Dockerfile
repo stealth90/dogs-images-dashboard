@@ -4,7 +4,7 @@ WORKDIR /app/
 COPY tsconfig.json /app/
 COPY package.json /app/
 COPY public /app/public
-COPY src /app/
+COPY src /app/src
 
 RUN yarn install
 

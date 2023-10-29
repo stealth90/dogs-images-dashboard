@@ -1,3 +1,4 @@
+import { DOG_API_BASE_URL } from '../constants';
 import type {
   Breed,
   BreedsListResponse,
@@ -16,7 +17,7 @@ class DogService {
   private api_url: string = '';
 
   constructor() {
-    this.api_url = process.env.REACT_APP_DOG_API_BASE_URL as string;
+    this.api_url = DOG_API_BASE_URL
   }
 
   getAllBreedsList = async (): Promise<GetAllBreedsListResponse> => {
