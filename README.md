@@ -49,7 +49,7 @@ The dogs-images-dashboard repository is a project that allows users to view and 
 | ⚙️ | **Architecture**   | The codebase follows a component-based architecture using React.js framework. It separates UI components into reusable and interchangeable components such as Card, Carousel, and Header. The codebase also follows a single-page application architecture with a client-side rendering approach. |
 | 📄 | **Documentation**  | The documentation in the repository is limited. There is a README.md file that provides a brief overview of the project, but it lacks in-depth documentation on code structure, architecture, and usage instructions. Additional documentation would be helpful for onboarding new developers and users.|
 | 🔗 | **Dependencies**   | The repository relies on external libraries such as React for frontend development. The package.json file provides a list of all the dependencies along with their version numbers. |
-| 🧪 | **Testing**        | The codebase includes a single test file (App.test.tsx) that uses React Testing Library to perform unit testing on the App component. However, extensive test coverage is lacking, as only one component is tested. Incorporating additional test files and integrating a testing framework like Jest would enhance the testing strategy. 
+| 🧪 | **Testing**        | The codebase includes a e2e suit test that use Cypress library
 
 ---
 
@@ -59,6 +59,11 @@ The dogs-images-dashboard repository is a project that allows users to view and 
 └── dogs-images-dashboard/
     ├── .env
     ├── package.json
+    ├── cypress/
+    │   ├── downloads
+    │   ├── e2e
+    │   ├── fixtures
+    │   ├── support
     ├── public/
     │   ├── index.html
     │   ├── manifest.json
@@ -71,6 +76,7 @@ The dogs-images-dashboard repository is a project that allows users to view and 
     │   │   ├── Carousel/
     │   │   ├── CustomButton/
     │   │   ├── Header/
+    │   │   ├── ImagePlaceholder/
     │   │   ├── ImagesListByBread/
     │   │   ├── ImagesListByBreadAndSubBreed/
     │   │   ├── LazyImage/
@@ -79,6 +85,8 @@ The dogs-images-dashboard repository is a project that allows users to view and 
     │   │   ├── RandomImageByBreedAndSubBreed/
     │   │   ├── SelectInput/
     │   │   └── Skeleton/
+    │   ├── context/
+    │   │   ├── Breed.tsx
     │   ├── hooks/
     │   │   ├── useBreedsList.ts
     │   │   ├── useCarousel.ts
