@@ -1,10 +1,11 @@
 import React from 'react';
 import { ReactComponent as GitHubIcon } from '../../assets/icons/github.svg';
+import { GITHUB_PROJECT_URL } from '../../constants';
 import './header.scss';
 
 const Header = () => {
   const handleOnClickGitHubIcon = () => {
-    window.open(process.env.REACT_APP_GITHUB_PROJECT_URL, '_blank');
+    window.open(GITHUB_PROJECT_URL, '_blank');
   };
 
   return (

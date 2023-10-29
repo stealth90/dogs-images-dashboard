@@ -11,14 +11,15 @@
 <img src="https://img.shields.io/badge/HTML5-E34F26.svg?style=plastic&logo=HTML5&logoColor=white" alt="HTML5" />
 <img src="https://img.shields.io/badge/Sass-CC6699.svg?style=plastic&logo=Sass&logoColor=white" alt="Sass" />
 <img src="https://img.shields.io/badge/Jest-C21325.svg?style=plastic&logo=Jest&logoColor=white" alt="Jest" />
+<img src="https://img.shields.io/badge/Docker-3178C6.svg?style=plastic&logo=Docker&logoColor=white" alt="Docker" />
+<img src="https://img.shields.io/badge/Cypress-C.svg?style=plastic&logo=Cypress&logoColor=white" alt="Cypress" />
 
-<img src="https://img.shields.io/badge/ESLint-4B32C3.svg?style=plastic&logo=ESLint&logoColor=white" alt="ESLint" />
-<img src="https://img.shields.io/badge/.ENV-ECD53F.svg?style=plastic&logo=dotenv&logoColor=black" alt=".ENV" />
-
-
+<a href="https://hub.docker.com/repository/docker/ppetralia/dogs-images-dashboard/general"><h3>🎯 Docker image</h3></p>
 </p>
 
 </div>
+
+
 
 ---
 
@@ -57,7 +58,6 @@ The dogs-images-dashboard repository is a project that allows users to view and 
 
 ```sh
 └── dogs-images-dashboard/
-    ├── .env
     ├── package.json
     ├── cypress/
     │   ├── downloads
@@ -110,6 +110,9 @@ The dogs-images-dashboard repository is a project that allows users to view and 
     │   │   └── index.ts
     │   └── utils/
     │       └── index.ts
+    ├── .nvmrc
+    ├── cypress.config.ts
+    ├── Dockerfile
     ├── tsconfig.json
     └── yarn.lock
 
