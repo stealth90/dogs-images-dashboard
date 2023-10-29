@@ -1,13 +1,10 @@
 import { useState } from 'react';
 import dogApi from '../services/Dog';
 import type { Breed, ImageUrl } from '../types';
-import useBreedsList from './useBreedsList';
 
 const useImagesListByBread = () => {
   const [breed, setBreed] = useState<Breed>();
   const [images, setImages] = useState<ImageUrl[]>();
-
-  const { breedsList, loading } = useBreedsList();
 
   const getImages = async () => {
     if (breed) {
@@ -23,8 +20,6 @@ const useImagesListByBread = () => {
   };
 
   return {
-    isLoading: loading,
-    breedsList,
     breedSelected: breed,
     images,
     setBreed: handleOnSetBreed,

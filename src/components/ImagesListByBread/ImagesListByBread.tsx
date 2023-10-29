@@ -1,32 +1,41 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Card from '../Card';
 import CustomButton from '../CustomButton';
 import SelectInput from '../SelectInput';
 import Carousel from '../Carousel';
+import ImagePlaceholder from '../ImagePlaceholder';
 import useImagesListByBread from '../../hooks/useImagesListByBread';
+import { BreedContext } from '../../context/Breed';
 
 import './images-list-by-bread.scss';
 
 const ImagesListByBread = () => {
-  const { breedSelected, breedsList, images, setBreed, getImages } =
-    useImagesListByBread();
+  const { breedSelected, images, setBreed, getImages } = useImagesListByBread();
+
+  const { completeBreedsList, loading } = useContext(BreedContext);
 
   return (
-    <Card title="Images list by breed">
+    <Card data-testid="imagesListByBread" title="Images list by breed">
       <div className="images-list-by-bread">
         <SelectInput
-          items={breedsList}
+          data-testid="imagesListByBread-breedSelect"
+          items={completeBreedsList}
           itemSelected={breedSelected}
+          loading={loading}
           onSelectItem={(item: string) => setBreed(item)}
           placeholder="Select a breed"
         />
-        <CustomButton disabled={!breedSelected} onClick={() => getImages()} />
+        <CustomButton
+          data-testid="imagesListByBread-button"
+          disabled={!breedSelected}
+          onClick={() => getImages()}
+        />
       </div>
       {!images ? (
-        <div className="images-list-by-bread__placeholder" />
+        <ImagePlaceholder data-testid="imagesListByBread-placeholder" />
       ) : (
-        <Carousel images={images} />
+        <Carousel data-testid="imagesListByBread-carousel" images={images} />
       )}
     </Card>
   );

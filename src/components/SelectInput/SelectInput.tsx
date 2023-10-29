@@ -9,6 +9,7 @@ interface SelectInputProps {
   disabled?: boolean;
   loading?: boolean;
   onSelectItem: (selectedItem: string) => void;
+  'data-testid'?: string;
 }
 
 const SelectInput: React.FC<SelectInputProps> = ({
@@ -18,6 +19,7 @@ const SelectInput: React.FC<SelectInputProps> = ({
   loading,
   placeholder = 'Select an option',
   onSelectItem,
+  ...rest
 }) => {
   const [isOpenDropdown, setIsOpenDropdown] = useState(false);
 
@@ -27,22 +29,27 @@ const SelectInput: React.FC<SelectInputProps> = ({
   };
 
   return (
-    <div className={`select-input ${disabled ? 'disabled' : ''}`}>
+    <div data-testid={rest['data-testid']} className={`select-input ${disabled ? 'disabled' : ''}`}>
       <div
+        data-testid={`${rest['data-testid']}-dropdown`}
         className={`dropdown-container ${!itemSelected ? 'placeholder' : ''}`}
         onClick={() => setIsOpenDropdown((prevState) => !prevState)}
       >
         {itemSelected ? capitalize(itemSelected) : placeholder}
       </div>
 
-      <ul className={`select-wrapper ${isOpenDropdown ? 'is-open' : ''}`}>
+      <ul
+        data-testid={`${rest['data-testid']}-dropdown-list`}
+        className={`select-wrapper ${isOpenDropdown ? 'is-open' : ''}`}
+      >
         {loading ? (
-          <li className="dropdown-item no-option">
+          <li data-testid={`${rest['data-testid']}-noOptions`} className="dropdown-item no-option">
             <span>No options</span>
           </li>
         ) : items?.length ? (
-          items.map((item) => (
+          items.map((item, index) => (
             <li
+              data-testid={`${rest['data-testid']}-item-${index}`}
               key={item}
               className={`dropdown-item ${itemSelected === item ? 'selected' : ''}`}
               onClick={() => handleOnSelectItem(item)}

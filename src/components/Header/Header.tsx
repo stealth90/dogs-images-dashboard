@@ -4,7 +4,7 @@ import './header.scss';
 
 const Header = () => {
   const handleOnClickGitHubIcon = () => {
-    window.open('https://www.google.it', '_blank');
+    window.open(process.env.REACT_APP_GITHUB_PROJECT_URL, '_blank');
   };
 
   return (

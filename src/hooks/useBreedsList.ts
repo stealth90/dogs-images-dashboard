@@ -3,7 +3,7 @@ import type { Breed, BreedsListResponse } from '../types';
 import dogApi from '../services/Dog';
 import { getBreedsFromResponse, getBreedsThatHaveSubBreed } from '../utils';
 
-const useBreedsList = (onlyWithSubBreeds?: boolean) => {
+const useBreedsList = () => {
   const [loading, setLoading] = useState(false);
   const [breedsList, setBreedsList] = useState<BreedsListResponse>();
 
@@ -15,9 +15,9 @@ const useBreedsList = (onlyWithSubBreeds?: boolean) => {
       setLoading(false);
     };
     getAllBreedsList();
-  }, [onlyWithSubBreeds]);
+  }, []);
 
-  const getBreedsList = (): Breed[] => {
+  const getBreedsList = (onlyWithSubBreeds?: boolean): Breed[] => {
     if (onlyWithSubBreeds) {
       return getBreedsThatHaveSubBreed(breedsList);
     }
@@ -28,7 +28,12 @@ const useBreedsList = (onlyWithSubBreeds?: boolean) => {
     return breedsList && breed ? breedsList[breed] : [];
   };
 
-  return { loading, breedsList: getBreedsList(), getSubBreedsList };
+  return {
+    loading,
+    completeBreedsList: getBreedsList(),
+    breedsWithSubBreedsList: getBreedsList(true),
+    getSubBreedsList,
+  };
 };
 
 export default useBreedsList;
