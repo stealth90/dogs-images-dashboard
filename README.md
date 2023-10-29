@@ -14,12 +14,7 @@
 <img src="https://img.shields.io/badge/Docker-3178C6.svg?style=plastic&logo=Docker&logoColor=white" alt="Docker" />
 <img src="https://img.shields.io/badge/Cypress-C.svg?style=plastic&logo=Cypress&logoColor=white" alt="Cypress" />
 
-<a href="https://hub.docker.com/repository/docker/ppetralia/dogs-images-dashboard/general"><h3>🎯 Docker image</h3></p>
-</p>
-
 </div>
-
-
 
 ---
 
@@ -31,7 +26,8 @@
 - [🚀 Getting Started](#-getting-started)
     - [🔧 Installation](#-installation)
     - [🤖 Running dogs-images-dashboard](#-running-dogs-images-dashboard)
-    - [🧪 Tests](#-tests)
+    - [🧪 Tests](#-e2e-tests)
+    - [🎯 Docker Image](#-docker-image-repo)
 - [📄 License](#-license)
 
 ---
@@ -135,19 +131,22 @@ cd dogs-images-dashboard
 
 3. Install the dependencies:
 ```sh
-yarn
+yarn or yarn install
 ```
 
 ### 🤖 Running dogs-images-dashboard
 
 ```sh
-yarn build && node dist/main.js
+yarn start
 ```
 
-### 🧪 Tests
+### 🧪 e2e Tests
 ```sh
-yarn test
+yarn cypress:open
 ```
+
+### 🎯 Docker image repo
+- [Docker](https://hub.docker.com/repository/docker/ppetralia/dogs-images-dashboard/general)
 ---
 
 ## 📄 License
