@@ -37,8 +37,6 @@
 
 The dogs-images-dashboard repository is a project that allows users to view and organize images of dogs. The dashboard provides a user-friendly interface for browsing and managing a collection of dog pictures. With its intuitive design and easy-to-use features, this project offers a great solution for dog lovers who want to keep their dog pictures organized and accessible. It use [Dog API](https://dog.ceo/dog-api/) service.
 
-- [🎯 Docker image](https://hub.docker.com/repository/docker/ppetralia/dogs-images-dashboard/general)
-
 ---
 
 ## 📦 Features
