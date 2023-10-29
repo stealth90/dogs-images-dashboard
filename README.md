@@ -14,12 +14,7 @@
 <img src="https://img.shields.io/badge/Docker-3178C6.svg?style=plastic&logo=Docker&logoColor=white" alt="Docker" />
 <img src="https://img.shields.io/badge/Cypress-C.svg?style=plastic&logo=Cypress&logoColor=white" alt="Cypress" />
 
-<a href="https://hub.docker.com/repository/docker/ppetralia/dogs-images-dashboard/general"><h3>🎯 Docker image</h3></p>
-</p>
-
 </div>
-
-
 
 ---
 
@@ -31,7 +26,8 @@
 - [🚀 Getting Started](#-getting-started)
     - [🔧 Installation](#-installation)
     - [🤖 Running dogs-images-dashboard](#-running-dogs-images-dashboard)
-    - [🧪 Tests](#-tests)
+    - [🧪 Tests](#-e2e-tests)
+    - [🎯 Docker Image](#-docker-image-repo)
 - [📄 License](#-license)
 
 ---
@@ -40,6 +36,8 @@
 ## 📍 Overview
 
 The dogs-images-dashboard repository is a project that allows users to view and organize images of dogs. The dashboard provides a user-friendly interface for browsing and managing a collection of dog pictures. With its intuitive design and easy-to-use features, this project offers a great solution for dog lovers who want to keep their dog pictures organized and accessible. It use [Dog API](https://dog.ceo/dog-api/) service.
+
+- [🎯 Docker image](https://hub.docker.com/repository/docker/ppetralia/dogs-images-dashboard/general)
 
 ---
 
@@ -148,6 +146,9 @@ yarn start
 ```sh
 yarn cypress:open
 ```
+
+### 🎯 Docker image repo
+- [Docker](https://hub.docker.com/repository/docker/ppetralia/dogs-images-dashboard/general)
 ---
 
 ## 📄 License
