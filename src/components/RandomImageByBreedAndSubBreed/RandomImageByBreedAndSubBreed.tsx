@@ -1,51 +1,58 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Card from '../Card';
 import LazyImage from '../LazyImage';
 import CustomButton from '../CustomButton';
 import SelectInput from '../SelectInput';
 import Skeleton from '../Skeleton';
+import ImagePlaceholder from '../ImagePlaceholder';
 import useRandomImageByBreedAndSubBreed from '../../hooks/useRandomImageByBreedAndSubBreed';
+import { BreedContext } from '../../context/Breed';
 
 import './random-bree-dog-image-wrapper.scss';
 
 const RandomImageByBreedAndSubBreed = () => {
-  const {
-    breedSelected,
-    subBreedsList,
-    subBreedSelected,
-    breedsList,
-    image,
-    isDisabled,
-    setSubBreed,
-    setBreed,
-    getImage,
-  } = useRandomImageByBreedAndSubBreed();
+  const { breedSelected, subBreedSelected, image, isDisabled, setSubBreed, setBreed, getImage } =
+    useRandomImageByBreedAndSubBreed();
+  const { breedsWithSubBreedsList, loading, getSubBreedsList } = useContext(BreedContext);
+  const subBreedsList = getSubBreedsList ? getSubBreedsList(breedSelected || '') : [];
 
   return (
-    <Card title="Random image by breed and sub breed">
+    <Card data-testid="randomImageByBreedAndSubBreed" title="Random image by breed and sub breed">
       <div className="random-image-by-breed-and-sub-breed">
         <div className="random-image-by-breed-and-sub-breed__wrapper">
           <SelectInput
-            items={breedsList}
+            data-testid="randomImageByBreedAndSubBreed-breedSelect"
+            items={breedsWithSubBreedsList}
             itemSelected={breedSelected}
+            loading={loading}
             onSelectItem={(item: string) => setBreed(item)}
             placeholder="Select a breed"
           />
           <SelectInput
+            data-testid="randomImageByBreedAndSubBreed-subBreedSelect"
             items={subBreedsList}
             itemSelected={subBreedSelected}
+            loading={loading}
             onSelectItem={(item: string) => setSubBreed(item)}
             placeholder="Select a sub breed"
             disabled={!breedSelected}
           />
         </div>
-        <CustomButton disabled={isDisabled} onClick={() => getImage()} />
+        <CustomButton
+          data-testid="randomImageByBreedAndSubBreed-button"
+          disabled={isDisabled}
+          onClick={() => getImage()}
+        />
       </div>
       {!image ? (
-        <div className="random-image-by-breed-and-sub-breed__placeholder" />
+        <ImagePlaceholder data-testid="randomImageByBreedAndSubBreed-placeholder" />
       ) : (
-        <LazyImage key={image} src={image} loadingElement={<Skeleton />} />
+        <LazyImage
+          data-testid="randomImageByBreedAndSubBreed-image"
+          src={image}
+          loadingElement={<Skeleton />}
+        />
       )}
     </Card>
   );

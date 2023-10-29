@@ -14,13 +14,9 @@ import type {
 */
 class DogService {
   private api_url: string = '';
-  breedsList: BreedsListResponse = {};
 
   constructor() {
-    this.api_url = process.env.REACT_APP_DOG_API_ENDPOINT as string;
-    this.getAllBreedsList().then((response) => {
-      this.breedsList = response.message;
-    });
+    this.api_url = process.env.REACT_APP_DOG_API_BASE_URL as string;
   }
 
   getAllBreedsList = async (): Promise<GetAllBreedsListResponse> => {
@@ -73,7 +69,6 @@ class DogService {
   };
 
   getBreedsList = async(): Promise<BreedsListResponse> => {
-    if (this.breedsList) return this.breedsList
     return (await this.getAllBreedsList()).message;
   }
 }

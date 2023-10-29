@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Card from '../Card';
 import LazyImage from '../LazyImage';
@@ -6,28 +6,41 @@ import CustomButton from '../CustomButton';
 import SelectInput from '../SelectInput';
 import Skeleton from '../Skeleton';
 import useRandomBreedDogImage from '../../hooks/useRandomBreedDogImage';
+import ImagePlaceholder from '../ImagePlaceholder';
+import { BreedContext } from '../../context/Breed';
+
 import './random-bree-dog-image-wrapper.scss';
 
 const RandomBreedDogImage = () => {
-  const { breedSelected, breedsList, isLoading, image, setBreed, getImage } =
-    useRandomBreedDogImage();
+  const { breedSelected, image, setBreed, getImage } = useRandomBreedDogImage();
+
+  const { completeBreedsList, loading } = useContext(BreedContext);
 
   return (
-    <Card title="Random image by breed">
+    <Card data-testid="randomBreedDogImage" title="Random image by breed">
       <div className="random-bree-dog-image-wrapper">
         <SelectInput
-          items={breedsList}
+          data-testid="randomBreedDogImage-breedSelect"
+          items={completeBreedsList}
           itemSelected={breedSelected}
           placeholder="Select a breed"
-          loading={isLoading}
+          loading={loading}
           onSelectItem={(item: string) => setBreed(item)}
         />
-        <CustomButton disabled={!breedSelected} onClick={() => getImage()} />
+        <CustomButton
+          data-testid="randomBreedDogImage-button"
+          disabled={!breedSelected}
+          onClick={() => getImage()}
+        />
       </div>
       {!image ? (
-        <div className="random-bree-dog-image-wrapper__placeholder" />
+        <ImagePlaceholder data-testid="randomBreedDogImage-placeholder" />
       ) : (
-        <LazyImage src={image} loadingElement={<Skeleton />} />
+        <LazyImage
+          data-testid="randomBreedDogImage-image"
+          src={image}
+          loadingElement={<Skeleton />}
+        />
       )}
     </Card>
   );

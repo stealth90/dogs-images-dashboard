@@ -3,10 +3,10 @@
   justify-content: center;
   align-items: center;
   border-radius: 1rem;
-  max-width: 100%;
+  max-width: 20rem;
   height: auto;
-  max-height: 18.75rem;
-  margin: auto;
+  max-height: 20rem;
+  margin: 1rem auto;
   &.loading{
     margin: unset;
     height: 18.75rem;
