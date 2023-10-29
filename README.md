@@ -135,18 +135,18 @@ cd dogs-images-dashboard
 
 3. Install the dependencies:
 ```sh
-yarn
+yarn or yarn install
 ```
 
 ### 🤖 Running dogs-images-dashboard
 
 ```sh
-yarn build && node dist/main.js
+yarn start
 ```
 
-### 🧪 Tests
+### 🧪 e2e Tests
 ```sh
-yarn test
+yarn cypress:open
 ```
 ---
 
